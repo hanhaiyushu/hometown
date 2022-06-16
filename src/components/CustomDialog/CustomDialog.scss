@@ -1,0 +1,33 @@
+// ::v-deep
+.custom-dialog-header {
+  height: 56px;
+  border-bottom: 1px solid #FFFFFF;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFFFFF;
+  .title-text {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+.close-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+.corner-btn {
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  top: 18px;
+}
+
+.custom-dialog-footer {
+  border-top: 1px solid #FFFFFF;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
