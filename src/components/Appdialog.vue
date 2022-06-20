@@ -1,9 +1,9 @@
 <template>
     <el-container>
         <el-main>
-            <el-dialog class="my-dialog-name" :visible.sync="centerDialogVisible" width="160vh" top="45vh"
+            <el-dialog class="my-dialog-name" :visible.sync="centerDialogVisible" width="169vh" top="45vh"
                 :close-on-click-modal="false" :show-close="false" >
-                <div style="height: 160vh;  position:relative; border: 3px dashed #A12B06; background-color: #FFF1DD;">
+                <div style="height: 200vh;  position:relative; border: 3px dashed #A12B06; background-color: #FFF1DD;">
                     <iframe frameborder="no" marginwidth="0" marginheight="0" scrolling="no" width="100%" height="100%"
                         :src="url"></iframe>
                     <img style="width:80px ; position:absolute; height: 80px; margin-left: -100px; margin-top: 30px;"

@@ -2,7 +2,9 @@
   <!-- #BFBFBF  -->
   <div class="container">
     <div>
-      <div v-show="apptyle" style="height: 300px;">
+      <div v-show="apptyle && type" style="height: 300px;">
+      </div>
+      <div v-show="apptyle && !type" style="height: 30px;">
       </div>
 
       <div class="titlepng">
@@ -12,9 +14,24 @@
           <img class="textpic" src="../assets/location.png" />
         </div>
       </div>
-      <div v-show="apptyle" style="height: 30px;">
+   
+
+      <div v-show="!type" class="map">
+        <div class="baidumap">
+          <baidu-map class="baidumaptwo" :center="center" :zoom="zoom" :scroll-wheel-zoom="true" @ready="handler"
+            @click="getClickInfo">
+            <!-- 必须给容器指高度，不然地图将显示在一个高度为0的容器中，看不到 -->
+            <!-- <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+          <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true">
+          </bm-geolocation> -->
+            <!-- <bm-city-list anchor="BMAP_ANCHOR_TOP_LEFT"></bm-city-list> -->
+          </baidu-map>
+        </div>
+
+        <img class="close" @click="closemap" src="../assets/close.png" />
       </div>
-      <div v-show="type" class="biaoqian">
+
+      <div v-show="apptyle || type" class="biaoqian">
         <span class="titletext">村场景记忆</span>
         <el-card class="card">
           <div class="monitor-list">
@@ -61,20 +78,6 @@
         </el-card>
       </div>
 
-      <div v-show="!type" class="map">
-        <div class="baidumap">
-          <baidu-map class="baidumaptwo" :center="center" :zoom="zoom" :scroll-wheel-zoom="true" @ready="handler"
-            @click="getClickInfo">
-            <!-- 必须给容器指高度，不然地图将显示在一个高度为0的容器中，看不到 -->
-            <!-- <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
-          <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true">
-          </bm-geolocation> -->
-            <!-- <bm-city-list anchor="BMAP_ANCHOR_TOP_LEFT"></bm-city-list> -->
-          </baidu-map>
-        </div>
-
-        <img class="close" @click="closemap" src="../assets/close.png" />
-      </div>
 
       <div class="bottom">技术支持:广州中科雅图信息有限公司</div>
     </div>
@@ -111,6 +114,7 @@ export default {
   mounted() {
     if (this._isMobile()) {
       this.apptyle = true
+      this.type = false
       console.log("移动端")
       // 移动端
     } else {
@@ -313,7 +317,7 @@ export default {
       margin-top: 15px;
       margin-left: 40px;
       margin-bottom: 15px;
-      width: 100%;
+      width: 1100px;
       font-size: 36px;
       color: #FF9808;
       font-weight: bold;
@@ -396,13 +400,13 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    width: 98%;
+    width: 1100px;
     height: 520px;
     position: relative;
 
     .baidumap {
       border: 3px dashed #A12B06;
-      width: 100%;
+      width: 1100px;
       height: 520px;
 
       .baidumaptwo {
@@ -420,7 +424,7 @@ export default {
 
   .bottom {
     margin-top: 20px;
-    width: 100%;
+    width: 1150px;
     height: 70px;
     line-height: 70px;
     text-align: center;
