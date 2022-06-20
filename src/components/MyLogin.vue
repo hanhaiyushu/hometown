@@ -320,7 +320,8 @@ export default {
     }
 
     .card {
-      width: 100%;
+      width: 1100px;
+      margin-left: 20px;
       background-color: #FFF1DD;
 
       .monitor-list {
@@ -350,7 +351,7 @@ export default {
           overflow: hidden;
 
           .list {
-            width: calc(100vw - 150px);
+            width: 850px;
             display: flex;
             transform: all 2s;
             margin-left: -20px;
