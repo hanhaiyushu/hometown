@@ -122,23 +122,13 @@ export const USERS = [
       },
       {
         'id': 4,
-        'name': '村大榕树',
+        'name': '村大榕树1',
         'url':'https://720yun.com/vr/c9421aakm1a'
       },
       {
         'id': 5,
-        'name': '村池塘',
+        'name': '村池塘1',
         'url':'https://720yun.com/vr/69e26aakm1i'
-      },
-      {
-        'id': 6,
-        'name': '村廊桥水岸',
-        'url':'https://720yun.com/vr/bb52daakm1w'
-      },
-      {
-        'id': 7,
-        'name': '村巷江文里',
-        'url':'https://720yun.com/vr/7b62caakm1r'
       }
       ],
       'hometown':[
@@ -155,18 +145,13 @@ export const USERS = [
         {
           'id':3,
           'name': '客厅1',
-          'url':'https://720yun.com/vr/91023aakm46'
+          'url':'https://720yun.com/vr/91023aakm46' 
         },
         {
           'id':4,
           'name': '书房1',
           'url':'https://720yun.com/vr/1ce28aakm4s'
-        },
-        {
-          'id': 5,
-          'name': '漫游全景',
-          'url':'https://www.4dkankan.com/spc.html?m=KK-aJe3CwBbf0&lang=zh'
-        },
+        }
         ],
   },
   {

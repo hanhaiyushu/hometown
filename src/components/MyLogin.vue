@@ -1,102 +1,102 @@
 <template>
   <!-- #BFBFBF  -->
   <div class="container">
-    <div class="title">
-      <div class="picshow">
-        <img class="picone" src="../assets/picone.png" />
-        <img class="pictwo" src="../assets/pictwo.png" />
-        <img class="picthree" src="../assets/picthree.png" />
+    <div>
+      <div v-show="apptyle" style="height: 300px;">
       </div>
-      <div class="textplace">
-        <div class="textshow">
-          <img class="textpic" src="../assets/text.png" />
-        </div>
+
+      <div class="titlepng">
+        <img class="picone" src="../assets/titlepng.png" />
         <div class="location" @click="changemap">
           <span class="texttitle" style="text-decoration: underline ;color: orange;">{{ name }}</span>
           <img class="textpic" src="../assets/location.png" />
         </div>
       </div>
-    </div>
-
-    <div v-show="type" class="biaoqian">
-      <span class="titletext">村场景记忆</span>
-      <el-card class="card">
-        <div class="monitor-list">
-          <!-- 左边按钮 -->
-          <div class="btn" @click="scrollLeft(0)">
-            <i class="el-icon el-icon-caret-left" />
-          </div>
-          <!-- 中间列表 -->
-          <div id="list-box" class="list-box">
-            <div id="list" class="list">
-              <div v-for="item in monitorList" :key="item.id" class="list-item">
-                <div class="model" @click="dialogshow(item.url)">{{ item.name }}</div>
+      <div v-show="apptyle" style="height: 30px;">
+      </div>
+      <div v-show="type" class="biaoqian">
+        <span class="titletext">村场景记忆</span>
+        <el-card class="card">
+          <div class="monitor-list">
+            <!-- 左边按钮 -->
+            <div class="btn" @click="scrollLeft(0)">
+              <i class="el-icon el-icon-caret-left" />
+            </div>
+            <!-- 中间列表 -->
+            <div id="list-box" class="list-box">
+              <div id="list" class="list">
+                <div v-for="item in monitorList" :key="item.id" class="list-item">
+                  <div class="model" @click="dialogshow(item.url)">{{ item.name }}</div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- 右边按钮 -->
-          <div class="btn" @click="scrollRight(0)">
-            <i class="el-icon el-icon-caret-right" />
-          </div>
-        </div>
-      </el-card>
-
-      <span class="titletext">老家场景记忆</span>
-
-      <el-card class="card">
-        <div class="monitor-list">
-          <!-- 左边按钮 -->
-          <div class="btn" @click="scrollLeft(1)">
-            <i class="el-icon el-icon-caret-left" />
-          </div>
-          <!-- 中间列表 -->
-          <div id="list-box-hometown" class="list-box">
-            <div id="list-hometown" class="list">
-              <div v-for="item in hometownList" :key="item.id" class="list-item">
-                <div class="model" @click="dialogshow(item.url)">{{ item.name }}</div>
-              </div>
+            <!-- 右边按钮 -->
+            <div class="btn" @click="scrollRight(0)">
+              <i class="el-icon el-icon-caret-right" />
             </div>
           </div>
-          <!-- 右边按钮 -->
-          <div class="btn" @click="scrollRight(1)">
-            <i class="el-icon el-icon-caret-right" />
-          </div>
-        </div>
-      </el-card>
-    </div>
+        </el-card>
 
-    <div v-show="!type" class="map">
-      <div class="baidumap">
-        <baidu-map class="baidumaptwo" :center="center" :zoom="zoom" :scroll-wheel-zoom="true" @ready="handler"
-          @click="getClickInfo">
-          <!-- 必须给容器指高度，不然地图将显示在一个高度为0的容器中，看不到 -->
-          <!-- <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
-          <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true">
-          </bm-geolocation> -->
-          <!-- <bm-city-list anchor="BMAP_ANCHOR_TOP_LEFT"></bm-city-list> -->
-        </baidu-map>
+        <span class="titletext">老家场景记忆</span>
+
+        <el-card class="card">
+          <div class="monitor-list">
+            <!-- 左边按钮 -->
+            <div class="btn" @click="scrollLeft(1)">
+              <i class="el-icon el-icon-caret-left" />
+            </div>
+            <!-- 中间列表 -->
+            <div id="list-box-hometown" class="list-box">
+              <div id="list-hometown" class="list">
+                <div v-for="item in hometownList" :key="item.id" class="list-item">
+                  <div class="model" @click="dialogshow(item.url)">{{ item.name }}</div>
+                </div>
+              </div>
+            </div>
+            <!-- 右边按钮 -->
+            <div class="btn" @click="scrollRight(1)">
+              <i class="el-icon el-icon-caret-right" />
+            </div>
+          </div>
+        </el-card>
       </div>
 
-      <img class="close" @click="closemap" src="../assets/close.png" />
+      <div v-show="!type" class="map">
+        <div class="baidumap">
+          <baidu-map class="baidumaptwo" :center="center" :zoom="zoom" :scroll-wheel-zoom="true" @ready="handler"
+            @click="getClickInfo">
+            <!-- 必须给容器指高度，不然地图将显示在一个高度为0的容器中，看不到 -->
+            <!-- <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+          <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true">
+          </bm-geolocation> -->
+            <!-- <bm-city-list anchor="BMAP_ANCHOR_TOP_LEFT"></bm-city-list> -->
+          </baidu-map>
+        </div>
+
+        <img class="close" @click="closemap" src="../assets/close.png" />
+      </div>
+
+      <div class="bottom">技术支持:广州中科雅图信息有限公司</div>
     </div>
-
-    <div class="bottom">技术支持:广州中科雅图信息有限公司</div>
-
     <Mydialog ref="mydialog"></Mydialog>
+    <Appdialog ref="appdialog"></Appdialog>
+
   </div>
 </template>
 
 <script>
 import { USERS } from './constant'
 import Mydialog from './Mydialog.vue'
+import Appdialog from './Appdialog.vue'
 import myimg from "../assets/map.png"
 
 export default {
-  components: { Mydialog },
+  components: { Mydialog, Appdialog },
   name: "MyLogin",
   data() {
     return {
       type: true,
+      apptyle: false,
       name: "阿亮的老家",
       monitorList: USERS[0].village,
       hometownList: USERS[0].hometown,
@@ -108,6 +108,18 @@ export default {
       zoom: 13,
     };
   },
+  mounted() {
+    if (this._isMobile()) {
+      this.apptyle = true
+      console.log("移动端")
+      // 移动端
+    } else {
+      this.apptyle = false
+      console.log("PC端")
+      // PC端
+    }
+
+  },
   created() {
     console.log(this.$route.query.id);
     if (typeof this.$route.query.id === "undefined") {
@@ -118,6 +130,13 @@ export default {
     this.initMonitorList(this.$route.query.id);
   },
   methods: {
+    _isMobile() {
+      let flag = navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+      return flag;
+    },
+
     initMonitorList(id) {
       for (let i = 0; i < USERS.length; i++) {
         if (USERS[i].name.includes(id)) {
@@ -133,7 +152,7 @@ export default {
     changemap() {
       this.type = false
     },
-    closemap(){
+    closemap() {
       this.type = true
     },
     // 左滑动逻辑
@@ -201,7 +220,13 @@ export default {
       }
     },
     dialogshow(url) {
-      this.$refs.mydialog.show(url);
+      if (this.apptyle) {
+        this.$refs.appdialog.show(url);
+
+      } else {
+        this.$refs.mydialog.show(url);
+
+      }
     },
     handler({ BMap, map }) {
       map.clearOverlays()
@@ -236,94 +261,49 @@ export default {
 <style lang="less" scoped>
 .container {
   background-color: #FFF1DD;
-  height: 100%;
   width: 1150px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  .title {
-    height: 400px;
-    width: 100%;
+
+  .titlepng {
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 1150px;
+    height: 520px;
+    position: relative;
 
-    .picshow {
-      display: flex;
-      width: 650px;
-      height: 400px;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      .picone {
-        width: 200px;
-        height: 300px;
-      }
-
-      .pictwo {
-        margin-left: -60px;
-        width: 200px;
-        height: 200px;
-      }
-
-      .picthree {
-        margin-top: 60px;
-        margin-left: -60px;
-        width: 250px;
-        height: 300px;
-      }
+    .picone {
+      width: 100%;
+      height: 520px;
     }
 
-    .textplace {
-      width: 740px;
-      height: 400px;
+    .location {
+      position: absolute;
+      padding-right: 100px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-end;
 
-      .textshow {
-        padding-top: 40px;
-        margin-left: -70px;
-        display: flex;
-        width: 740px;
-        height: 400px;
-        flex-direction: row;
-        align-items: center;
-
-        .textpic {
-          width: 740px;
-          height: 300px;
-        }
+      .texttitle {
+        margin-top: 20px;
+        width: 200px;
+        font-size: 36px;
+        color: #FF9808;
+        font-weight: bold;
       }
 
-      .location {
-        padding-right: 100px;
-        margin-top: -15px;
-        display: flex;
-        flex-direction: row;
-        width: 580px;
-        height: 85px;
-        justify-content: flex-end;
-
-        .texttitle {
-          width: 200px;
-          height: 85px;
-          font-size: 36px;
-          color: #FF9808;
-          font-weight: bold;
-
-        }
-
-        .textpic {
-          margin-top: -30px;
-          width: 62px;
-          height: 80px;
-        }
+      .textpic {
+        width: 62px;
+        height: 80px;
       }
     }
   }
 
   .biaoqian {
-    margin-top: 10px;
+    margin-top: 20px;
     padding-left: 10px;
     flex-direction: column;
     height: 558px;
@@ -339,72 +319,73 @@ export default {
       font-weight: bold;
     }
 
-    .card{
+    .card {
       width: 100%;
-      background-color:#FFF1DD;
+      background-color: #FFF1DD;
+
       .monitor-list {
-      display: flex;
-      justify-content: space-between;
-      height: 150px;
-
-      .btn {
-        width: 50px;
+        display: flex;
+        justify-content: space-between;
         height: 150px;
-        line-height: 150px;
-        text-align: center;
-        cursor: pointer;
-        // icon
-        font-size: 36px;
-        color: #A6A6A6;
 
-        // color:  #FF9808;
-        &:hover {
-          background-color: #FFE3BB;
-          color: #FF9808;
+        .btn {
+          width: 50px;
+          height: 150px;
+          line-height: 150px;
+          text-align: center;
+          cursor: pointer;
+          // icon
+          font-size: 36px;
+          color: #A6A6A6;
+
+          // color:  #FF9808;
+          &:hover {
+            background-color: #FFE3BB;
+            color: #FF9808;
+          }
         }
-      }
 
-      .list-box {
-        width: 1000px;
-        overflow: hidden;
+        .list-box {
+          width: 1000px;
+          overflow: hidden;
 
-        .list {
-          width: calc(100vw - 150px);
-          display: flex;
-          transform: all 2s;
-          margin-left: -20px;
+          .list {
+            width: calc(100vw - 150px);
+            display: flex;
+            transform: all 2s;
+            margin-left: -20px;
 
-          .list-item {
-            width: 200px;
-            height: 150px;
-            text-align: center;
-            padding: 10px;
-            cursor: pointer;
-            margin-left: 40px;
-
-            .model {
+            .list-item {
               width: 200px;
-              height: 140px;
-              line-height: 136px;
-              border: 3px dashed #A12B06;
-              border-radius: 20px 0 20px 0;
+              height: 150px;
               text-align: center;
-              font-size: 30px;
-              color: #7F7F7F;
-              background-color: #F2F2F2;
-              font-weight: bold
+              padding: 10px;
+              cursor: pointer;
+              margin-left: 40px;
+
+              .model {
+                width: 200px;
+                height: 140px;
+                line-height: 136px;
+                border: 3px dashed #A12B06;
+                border-radius: 20px 0 20px 0;
+                text-align: center;
+                font-size: 30px;
+                color: #7F7F7F;
+                background-color: #F2F2F2;
+                font-weight: bold
+              }
+
             }
 
+            position: relative;
+            left: 0;
+            transition: left 1s;
           }
-
-          position: relative;
-          left: 0;
-          transition: left 1s;
         }
       }
     }
-    }
-    
+
 
   }
 
@@ -415,19 +396,23 @@ export default {
     flex-direction: row;
     justify-content: flex-end;
     width: 98%;
-    height:520px;
-    position:relative;
+    height: 520px;
+    position: relative;
+
     .baidumap {
       border: 3px dashed #A12B06;
       width: 100%;
       height: 520px;
-      .baidumaptwo{
+
+      .baidumaptwo {
         height: 514px;
       }
     }
 
-    .close{
-      width: 80px ; position:absolute; height: 80px;
+    .close {
+      width: 80px;
+      position: absolute;
+      height: 80px;
     }
 
   }

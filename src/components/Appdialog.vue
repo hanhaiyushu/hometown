@@ -1,9 +1,9 @@
 <template>
     <el-container>
         <el-main>
-            <el-dialog class="my-dialog-name" :visible.sync="centerDialogVisible" width="50%"
+            <el-dialog class="my-dialog-name" :visible.sync="centerDialogVisible" width="90%" top="100vh"
                 :close-on-click-modal="false" :show-close="false">
-                <div style="height: 750px;  position:relative; border: 3px dashed #A12B06; background-color: #FFF1DD;">
+                <div style="height: 850px;  position:relative; border: 3px dashed #A12B06; background-color: #FFF1DD;">
                     <iframe frameborder="no" marginwidth="0" marginheight="0" scrolling="no" width="100%" height="100%"
                         :src="url"></iframe>
                     <img style="width:80px ; position:absolute; height: 80px; margin-left: -100px; margin-top: 30px;"
@@ -18,7 +18,7 @@ export default {
     data() {
         return {
             centerDialogVisible: false,
-            url:''
+            url: ''
         }
 
     },
@@ -38,8 +38,11 @@ export default {
 //没有scoped全局css全部文件生效但是其他地方用dialog样式也会生效
 <style lang="scss" >
 .my-dialog-name {
+
     //因此通过el-dialog的class进行全局css中局部定义 只在当前文件生效
     .el-dialog {
+        // margin: 100vh auto 50px !important;
+
         .el-dialog__header {
             //声明弹出框头dialog__header为蓝色   内容 和 尾巴标题这样修改，具体可以修改的东西点F12看它渲染出来的内容
             margin: 0;
